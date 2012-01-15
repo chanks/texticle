@@ -83,5 +83,15 @@ parse_line = [
     'name'    : "Underscores will convert to <em> tags for emphasis.",
     'textile' : "No, I _really_ feel that way!",
     'html'    : "No, I <em>really</em> feel that way!"
+  },
+  {
+    'name'    : "Double asterisks will convert to <b> tags for strength.",
+    'textile' : "You look **really** ugly in that dress.",
+    'html'    : "You look <b>really</b> ugly in that dress."
+  },
+  {
+    'name'    : "Double underscores will convert to <i> tags for emphasis.",
+    'textile' : "No, I __really__ feel that way!",
+    'html'    : "No, I <i>really</i> feel that way!"
   }
 ]

@@ -10,8 +10,10 @@
     input = input.replace(/\(R\)/g, "&#174;");
     input = input.replace(/\(TM\)/g, "&#8482;");
     input = input.replace(/([\d\s'"])x(?=[\d\s])/g, "$1#215;");
+    input = input.replace(/\*\*(.+)\*\*/g, "<b>$1</b>");
+    input = input.replace(/__(.+)__/g, "<i>$1</i>");
     input = input.replace(/\*(.+)\*/g, "<strong>$1</strong>");
-    return input = input.replace(/\_(.+)\_/g, "<em>$1</em>");
+    return input = input.replace(/_(.+)_/g, "<em>$1</em>");
   };
 
   Texticle.parse = function(input) {
