@@ -9,11 +9,11 @@
     <script src="qunit.js"></script>
     <script src="../texticle.js"></script>
 
-    <script src="cases/basic.js"></script>
+    <script src="cases/parse.js"></script>
 
     <script src="coffee-script.js"></script>
     <script type="text/coffeescript">
-      for spec in basic
+      for spec in parse
         do (spec) ->
           test spec.name, ->
             equal Texticle.parse(spec.textile), spec.html

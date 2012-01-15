@@ -1,4 +1,4 @@
-basic = [
+parse = [
   {
     'name'    : "A single bare line will be formatted as a paragraph.",
     'textile' : "One solitary line.",
