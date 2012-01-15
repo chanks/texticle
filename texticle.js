@@ -8,7 +8,8 @@
     input = input.replace(/\s-\s/g, " &#8211; ");
     input = input.replace(/\(C\)/g, "&#169;");
     input = input.replace(/\(R\)/g, "&#174;");
-    return input = input.replace(/\(TM\)/g, "&#8482;");
+    input = input.replace(/\(TM\)/g, "&#8482;");
+    return input = input.replace(/([\d\s'"])x(?=[\d\s])/g, "$1#215;");
   };
 
   Texticle.parse = function(input) {

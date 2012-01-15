@@ -48,5 +48,30 @@ parse_line = [
     'name'    : "(R) will be converted to whatever entity that is.",
     'textile' : "I forget what the R means, but (R)(R).",
     'html'    : "I forget what the R means, but &#174;&#174;."
+  },
+  {
+    'name'    : "'x' will become a dimension sign when it is between two digits.",
+    'textile' : "Reading you alright, 4x5.",
+    'html'    : "Reading you alright, 4#215;5."
+  },
+  {
+    'name'    : "'x' will become a dimension sign when it is between two digits, even when surrounded by spaces.",
+    'textile' : "Reading you alright, 4 x 5.",
+    'html'    : "Reading you alright, 4 #215; 5."
+  },
+  {
+    'name'    : "'x' will chain properly to become a dimension sign several times between digits.",
+    'textile' : "Chained multiplications like 6x7x8x9 are scary to me.",
+    'html'    : "Chained multiplications like 6#215;7#215;8#215;9 are scary to me."
+  },
+  {
+    'name'    : "'x' will chain properly to become a dimension sign when preceded by an inches signifier.",
+    'textile' : "My cat is shaped like a box, and measures 5.5\"x8\"x15\".",
+    'html'    : "My cat is shaped like a box, and measures 5.5\"#215;8\"#215;15\"."
+  },
+  {
+    'name'    : "'x' will chain properly to become a dimension sign when preceded by a feet signifier.",
+    'textile' : "My much larger cat is also shaped like a box, and measures 3'x2.5'x8'.",
+    'html'    : "My much larger cat is also shaped like a box, and measures 3'#215;2.5'#215;8'."
   }
 ]
