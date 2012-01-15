@@ -1,9 +1,16 @@
 parse_line = [
+  // Ellipses.
+
   {
     'name'    : "A triplet of periods will become an ellipsis.",
     'textile' : "Oh... I wish I were...",
     'html'    : "Oh&#8230; I wish I were&#8230;"
   },
+
+
+
+  // Hyphens to en and em dashes.
+
   {
     'name'    : "A double hyphen will become an em dash.",
     'textile' : "Oy--my giblets!",
@@ -34,6 +41,11 @@ parse_line = [
     'textile' : "What a beautifully-rendered piece of well-presented Textile!",
     'html'    : "What a beautifully-rendered piece of well-presented Textile!"
   },
+
+
+
+  // Copyright/Trademark signs.
+
   {
     'name'    : "(C) will be converted to the copyright entity.",
     'textile' : "If you could copyright the copyright symbol, it would likely look like (C)(C).",
@@ -49,6 +61,11 @@ parse_line = [
     'textile' : "I forget what the R means, but (R)(R).",
     'html'    : "I forget what the R means, but &#174;&#174;."
   },
+
+
+
+  // Dimensional notation.
+
   {
     'name'    : "'x' will become a dimension sign when it is between two digits.",
     'textile' : "Reading you alright, 4x5.",
@@ -74,6 +91,11 @@ parse_line = [
     'textile' : "My much larger cat is also shaped like a box, and measures 3'x2.5'x8'.",
     'html'    : "My much larger cat is also shaped like a box, and measures 3&#8217;#215;2.5&#8217;#215;8&#8217;."
   },
+
+
+
+  // Text emphasis.
+
   {
     'name'    : "Asterisks will convert to <strong> tags for strength.",
     'textile' : "You look *really* ugly in that dress.",
@@ -94,6 +116,11 @@ parse_line = [
     'textile' : "No, I __really__ feel that way!",
     'html'    : "No, I <i>really</i> feel that way!"
   },
+
+
+
+  // Fancy quotes.
+
   {
     'name'    : "Double quotes around words are converted to curly quotations.",
     'textile' : "I said, \"Mr. Darcy, fuck off!\" right to his face!",
@@ -104,6 +131,11 @@ parse_line = [
     'textile' : "And then he said, \"I said, 'Mr. Darcy, fuck off!' right to his face!\" right to my face!",
     'html'    : "And then he said, &#8220;I said, &#8217;Mr. Darcy, fuck off!&#8217; right to his face!&#8221; right to my face!"
   },
+
+
+
+  // Acronyms.
+
   {
     'name'    : "Acronyms can be specified with an acronym tag.",
     'textile' : "I call BS(Bullshit) on you, good sir.",

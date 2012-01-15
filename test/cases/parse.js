@@ -1,4 +1,6 @@
 parse = [
+  // Simple spacing - paragraphs and line breaks.
+
   {
     'name'    : "A single bare line will be formatted as a paragraph.",
     'textile' : "One solitary line.",
@@ -24,6 +26,11 @@ parse = [
     'textile' : "The first paragraph.\n\t\nThe second paragraph.",
     'html'    : "<p>The first paragraph.</p>\n<p>The second paragraph.</p>"
   },
+
+
+
+  // Headers.
+
   {
     'name'    : "A line can be marked as a header.",
     'textile' : "h1. Big Picture\n\nBlah Blah Blah.\n\nh3. Slightly Smaller Picture\n\nTra la la.",
