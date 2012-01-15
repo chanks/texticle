@@ -31,6 +31,10 @@
       line = lines[index];
       next_line = lines[index + 1];
       if (!line.match(/\S/)) continue;
+      if (line.match(/^[*\-\+_\s]{3,}$/)) {
+        output += "<hr />\n";
+        continue;
+      }
       if (heading = /^h(\d)\.\s*(.*)/.exec(line)) {
         output += "<h" + heading[1] + ">" + heading[2] + "</h" + heading[1] + ">\n";
         continue;

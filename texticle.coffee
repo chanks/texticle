@@ -33,6 +33,10 @@ Texticle.parse = (input) ->
     # Skip empty lines.
     continue unless line.match(/\S/)
 
+    if line.match(/^[*\-\+_\s]{3,}$/)
+      output += "<hr />\n"
+      continue
+
     # Check for heading.
     if heading = /^h(\d)\.\s*(.*)/.exec line
       output += "<h#{heading[1]}>#{heading[2]}</h#{heading[1]}>\n"
