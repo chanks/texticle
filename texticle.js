@@ -3,7 +3,8 @@
   window.Texticle = {};
 
   Texticle.parse_line = function(input) {
-    return input.replace(/\.\.\./g, "&#8230;");
+    input = input.replace(/\.\.\./g, "&#8230;");
+    return input = input.replace(/--/g, "&#8212;");
   };
 
   Texticle.parse = function(input) {

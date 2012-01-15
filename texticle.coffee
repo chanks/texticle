@@ -1,7 +1,8 @@
 window.Texticle = {}
 
 Texticle.parse_line = (input) ->
-  input.replace /\.\.\./g, "&#8230;"
+  input = input.replace /\.\.\./g, "&#8230;"
+  input = input.replace /--/g,     "&#8212;"
 
 Texticle.parse = (input) ->
   output = ""
