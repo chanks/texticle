@@ -23,5 +23,15 @@ parse_line = [
     'name'    : "Sets of double hyphens will become em dashes, even with space around them.",
     'textile' : "My main point -- with a minor subthought -- was what again?",
     'html'    : "My main point &#8212; with a minor subthought &#8212; was what again?"
+  },
+  {
+    'name'    : "A hyphen betwixt two words will become an en dash.",
+    'textile' : "Hey - that reminds me of my other point - which is that you blow.",
+    'html'    : "Hey &#8211; that reminds me of my other point &#8211; which is that you blow."
+  },
+  {
+    'name'    : "A hyphen within a word will be left alone.",
+    'textile' : "What a beautifully-rendered piece of well-presented Textile!",
+    'html'    : "What a beautifully-rendered piece of well-presented Textile!"
   }
 ]

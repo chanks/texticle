@@ -4,7 +4,8 @@
 
   Texticle.parse_line = function(input) {
     input = input.replace(/\.\.\./g, "&#8230;");
-    return input = input.replace(/--/g, "&#8212;");
+    input = input.replace(/--/g, "&#8212;");
+    return input = input.replace(/\s-\s/g, " &#8211; ");
   };
 
   Texticle.parse = function(input) {
