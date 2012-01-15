@@ -140,5 +140,25 @@ parse_line = [
     'name'    : "Acronyms can be specified with an acronym tag.",
     'textile' : "I call BS(Bullshit) on you, good sir.",
     'html'    : "I call <acronym title=\"Bullshit\">BS</acronym> on you, good sir."
+  },
+
+
+
+  // Insertions/deletions.
+
+  {
+    'name'    : "Surround a word with pluses to indicate its insertion.",
+    'textile' : "You are +not+ a very good liar, good sir.",
+    'html'    : "You are <ins>not</ins> a very good liar, good sir."
+  },
+  {
+    'name'    : "Surround a word with minuses to indicate its insertion.",
+    'textile' : "Hello -cruel- world.",
+    'html'    : "Hello <del>cruel</del> world."
+  },
+  {
+    'name'    : "Insertions and deletions can apply to many words as well.",
+    'textile' : "You are a -perfect ass- +total gentleman+, good sir.",
+    'html'    : "You are a <del>perfect ass</del> <ins>total gentleman</ins>, good sir."
   }
 ]

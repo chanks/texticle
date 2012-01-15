@@ -17,6 +17,8 @@ Texticle.parse_line = (input) ->
   input = input.replace /\*(.+)\*/g,         "<strong>$1</strong>"
   input = input.replace /_(.+)_/g,           "<em>$1</em>"
   input = input.replace /([A-Z]+)\((.+)\)/g, "<acronym title=\"$2\">$1</acronym>"
+  input = input.replace /\s\+(.+)\+/g,       " <ins>$1</ins>"
+  input = input.replace /\s\-(.+)\-/g,       " <del>$1</del>"
 
 Texticle.parse = (input) ->
   output = ""
