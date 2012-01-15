@@ -2,6 +2,10 @@
 
   window.Texticle = {};
 
+  Texticle.parse_line = function(input) {
+    return input.replace(/\.\.\./g, "&#8230;");
+  };
+
   Texticle.parse = function(input) {
     var in_paragraph, index, line, lines, next_line, output, _len;
     output = "";
@@ -15,7 +19,7 @@
         output += "<p>";
         in_paragraph = true;
       }
-      output += line;
+      output += Texticle.parse_line(line);
       if (next_line && next_line.match(/\S/)) {
         output += "<br />\n";
       } else {

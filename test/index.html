@@ -10,6 +10,7 @@
     <script src="../texticle.js"></script>
 
     <script src="cases/parse.js"></script>
+    <script src="cases/parse_line.js"></script>
 
     <script src="coffee-script.js"></script>
     <script type="text/coffeescript">
@@ -17,6 +18,14 @@
         do (spec) ->
           test spec.name, ->
             equal Texticle.parse(spec.textile), spec.html
+
+      for spec in parse_line
+        do (spec) ->
+          test "Texticle.parse_line() - #{spec.name}", ->
+            equal Texticle.parse_line(spec.textile), spec.html
+
+          test "Texticle.parse() - #{spec.name}", ->
+            equal Texticle.parse(spec.textile), "<p>#{spec.html}</p>"
     </script>
   </head>
   <body>

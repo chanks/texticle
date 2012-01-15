@@ -1,5 +1,8 @@
 window.Texticle = {}
 
+Texticle.parse_line = (input) ->
+  input.replace /\.\.\./g, "&#8230;"
+
 Texticle.parse = (input) ->
   output = ""
 
@@ -19,7 +22,7 @@ Texticle.parse = (input) ->
       in_paragraph = true
 
     # Actually write the line.
-    output += line
+    output += Texticle.parse_line(line)
 
     # If the next line isn't empty, it's a line break.
     if next_line and next_line.match(/\S/)
