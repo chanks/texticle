@@ -5,7 +5,10 @@
   Texticle.parse_line = function(input) {
     input = input.replace(/\.\.\./g, "&#8230;");
     input = input.replace(/--/g, "&#8212;");
-    return input = input.replace(/\s-\s/g, " &#8211; ");
+    input = input.replace(/\s-\s/g, " &#8211; ");
+    input = input.replace(/\(C\)/g, "&#169;");
+    input = input.replace(/\(R\)/g, "&#174;");
+    return input = input.replace(/\(TM\)/g, "&#8482;");
   };
 
   Texticle.parse = function(input) {
