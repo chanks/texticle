@@ -23,5 +23,10 @@ parse = [
     'name'    : "Two blocks with a tab on the blank line will be formatted as separate paragraphs.",
     'textile' : "The first paragraph.\n\t\nThe second paragraph.",
     'html'    : "<p>The first paragraph.</p>\n<p>The second paragraph.</p>"
+  },
+  {
+    'name'    : "A line can be marked as a header.",
+    'textile' : "h1. Big Picture\n\nBlah Blah Blah.\n\nh3. Slightly Smaller Picture\n\nTra la la.",
+    'html'    : "<h1>Big Picture</h1>\n<p>Blah Blah Blah.</p>\n<h3>Slightly Smaller Picture</h3>\n<p>Tra la la.</p>"
   }
 ]

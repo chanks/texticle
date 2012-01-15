@@ -17,7 +17,7 @@
   };
 
   Texticle.parse = function(input) {
-    var in_paragraph, index, line, lines, next_line, output, _len;
+    var heading, in_paragraph, index, line, lines, next_line, output, _len;
     output = "";
     in_paragraph = false;
     lines = input.split("\n");
@@ -25,6 +25,10 @@
       line = lines[index];
       next_line = lines[index + 1];
       if (!line.match(/\S/)) continue;
+      if (heading = /^h(\d)\.\s*(.*)/.exec(line)) {
+        output += "<h" + heading[1] + ">" + heading[2] + "</h" + heading[1] + ">\n";
+        continue;
+      }
       if (!in_paragraph) {
         output += "<p>";
         in_paragraph = true;
