@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Texticle</title>
+    <link rel="stylesheet" href="qunit.css" type="text/css" />
+
+    <script src="jquery.js"></script>
+    <script src="qunit.js"></script>
+    <script src="../texticle.js"></script>
+
+    <script src="cases/basic.js"></script>
+
+    <script src="coffee-script.js"></script>
+    <script type="text/coffeescript">
+      for spec in basic
+        do (spec) ->
+          test spec.name, ->
+            equal Texticle.textile(spec.textile), spec.html
+    </script>
+  </head>
+  <body>
+    <h1  id="qunit-header">Texticle</h1>
+    <h2  id="qunit-banner"></h2>
+    <div id="qunit-testrunner-toolbar"></div>
+    <h2  id="qunit-userAgent"></h2>
+    <ol  id="qunit-tests"></ol>
+    <div id="qunit-fixture">test markup, will be hidden</div>
+  </body>
+</html>

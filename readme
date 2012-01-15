@@ -1,0 +1,7 @@
+A Textile renderer in JavaScript (compiled from CoffeeScript).
+
+This is my first project in pure CoffeeScript/JavaScript (I usually use Ruby) so parts of it will probably be ugly, but I'm trying to work in a pure TDD fashion so things shouldn't get too bad.
+
+Make edits to texticle.coffee, with CoffeeScript 1.2.0 running as `coffee -w --compile texticle.coffee`. To run tests, visit texticle/test/index.html in your browser.
+
+Released into the public domain.
