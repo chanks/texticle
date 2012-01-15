@@ -103,5 +103,10 @@ parse_line = [
     'name'    : "Single quotes are also converted to curly versions.",
     'textile' : "And then he said, \"I said, 'Mr. Darcy, fuck off!' right to his face!\" right to my face!",
     'html'    : "And then he said, &#8220;I said, &#8217;Mr. Darcy, fuck off!&#8217; right to his face!&#8221; right to my face!"
+  },
+  {
+    'name'    : "Acronyms can be specified with an acronym tag.",
+    'textile' : "I call BS(Bullshit) on you, good sir.",
+    'html'    : "I call <acronym title=\"Bullshit\">BS</acronym> on you, good sir."
   }
 ]

@@ -16,7 +16,8 @@
     input = input.replace(/\*\*(.+)\*\*/g, "<b>$1</b>");
     input = input.replace(/__(.+)__/g, "<i>$1</i>");
     input = input.replace(/\*(.+)\*/g, "<strong>$1</strong>");
-    return input = input.replace(/_(.+)_/g, "<em>$1</em>");
+    input = input.replace(/_(.+)_/g, "<em>$1</em>");
+    return input = input.replace(/([A-Z]+)\((.+)\)/g, "<acronym title=\"$2\">$1</acronym>");
   };
 
   Texticle.parse = function(input) {
