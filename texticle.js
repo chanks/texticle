@@ -9,7 +9,9 @@
     input = input.replace(/\(C\)/g, "&#169;");
     input = input.replace(/\(R\)/g, "&#174;");
     input = input.replace(/\(TM\)/g, "&#8482;");
-    return input = input.replace(/([\d\s'"])x(?=[\d\s])/g, "$1#215;");
+    input = input.replace(/([\d\s'"])x(?=[\d\s])/g, "$1#215;");
+    input = input.replace(/\*(.+)\*/g, "<strong>$1</strong>");
+    return input = input.replace(/\_(.+)\_/g, "<em>$1</em>");
   };
 
   Texticle.parse = function(input) {

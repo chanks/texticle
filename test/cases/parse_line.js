@@ -73,5 +73,15 @@ parse_line = [
     'name'    : "'x' will chain properly to become a dimension sign when preceded by a feet signifier.",
     'textile' : "My much larger cat is also shaped like a box, and measures 3'x2.5'x8'.",
     'html'    : "My much larger cat is also shaped like a box, and measures 3'#215;2.5'#215;8'."
+  },
+  {
+    'name'    : "Asterisks will convert to <strong> tags for strength.",
+    'textile' : "You look *really* ugly in that dress.",
+    'html'    : "You look <strong>really</strong> ugly in that dress."
+  },
+  {
+    'name'    : "Underscores will convert to <em> tags for emphasis.",
+    'textile' : "No, I _really_ feel that way!",
+    'html'    : "No, I <em>really</em> feel that way!"
   }
 ]
