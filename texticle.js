@@ -2,7 +2,7 @@
 
   window.Texticle = {};
 
-  Texticle.textile = function(input) {
+  Texticle.parse = function(input) {
     var in_paragraph, index, line, lines, next_line, output, _len;
     output = "";
     in_paragraph = false;

@@ -1,6 +1,6 @@
 window.Texticle = {}
 
-Texticle.textile = (input) ->
+Texticle.parse = (input) ->
   output = ""
 
   in_paragraph = false

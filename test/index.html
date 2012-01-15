@@ -16,7 +16,7 @@
       for spec in basic
         do (spec) ->
           test spec.name, ->
-            equal Texticle.textile(spec.textile), spec.html
+            equal Texticle.parse(spec.textile), spec.html
     </script>
   </head>
   <body>
