@@ -72,7 +72,7 @@ parse_line = [
   {
     'name'    : "'x' will chain properly to become a dimension sign when preceded by a feet signifier.",
     'textile' : "My much larger cat is also shaped like a box, and measures 3'x2.5'x8'.",
-    'html'    : "My much larger cat is also shaped like a box, and measures 3'#215;2.5'#215;8'."
+    'html'    : "My much larger cat is also shaped like a box, and measures 3&#8217;#215;2.5&#8217;#215;8&#8217;."
   },
   {
     'name'    : "Asterisks will convert to <strong> tags for strength.",
@@ -93,5 +93,15 @@ parse_line = [
     'name'    : "Double underscores will convert to <i> tags for emphasis.",
     'textile' : "No, I __really__ feel that way!",
     'html'    : "No, I <i>really</i> feel that way!"
+  },
+  {
+    'name'    : "Double quotes around words are converted to curly quotations.",
+    'textile' : "I said, \"Mr. Darcy, fuck off!\" right to his face!",
+    'html'    : "I said, &#8220;Mr. Darcy, fuck off!&#8221; right to his face!"
+  },
+  {
+    'name'    : "Single quotes are also converted to curly versions.",
+    'textile' : "And then he said, \"I said, 'Mr. Darcy, fuck off!' right to his face!\" right to my face!",
+    'html'    : "And then he said, &#8220;I said, &#8217;Mr. Darcy, fuck off!&#8217; right to his face!&#8221; right to my face!"
   }
 ]
