@@ -56,6 +56,11 @@ parse_line = [
     'textile' : "What a beautifully-rendered piece of well-presented Textile!",
     'html'    : "What a beautifully-rendered piece of well-presented Textile!"
   },
+  {
+    'name'    : "A hyphen at the beginning of a line will be converted to an en dash.",
+    'textile' : "- This lets me list my thoughts more clearly.",
+    'html'    : "&#8211; This lets me list my thoughts more clearly."
+  },
 
 
 
