@@ -47,6 +47,11 @@ parse_line = [
     'html'    : "My main point &#8212; with a minor subthought &#8212; was what again?"
   },
   {
+    'name'    : "A double hyphen at the beginning of a line will also become an em dash.",
+    'textile' : "-- Sincerely, Mr. Darcy.",
+    'html'    : "&#8212; Sincerely, Mr. Darcy."
+  },
+  {
     'name'    : "A hyphen betwixt two words will become an en dash.",
     'textile' : "Hey - that reminds me of my other point - which is that you blow.",
     'html'    : "Hey &#8211; that reminds me of my other point &#8211; which is that you blow."
