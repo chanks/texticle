@@ -37,7 +37,7 @@ Texticle.parse = (input) ->
     # Skip empty lines.
     continue unless line.match(/\S/)
 
-    if line.match(/^[*\-\+_\s]{3,}$/)
+    if line.match(/^[*\-_\s]{3,}$/)
       output += "<hr />\n"
       continue
 

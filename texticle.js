@@ -35,7 +35,7 @@
       line = lines[index];
       next_line = lines[index + 1];
       if (!line.match(/\S/)) continue;
-      if (line.match(/^[*\-\+_\s]{3,}$/)) {
+      if (line.match(/^[*\-_\s]{3,}$/)) {
         output += "<hr />\n";
         continue;
       }

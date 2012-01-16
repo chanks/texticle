@@ -72,11 +72,6 @@ parse = [
     'html'    : "<p>A normal paragraph &#8212;- is unaffected.</p>\n<hr />\n<p>And here is another paragraph.</p>"
   },
   {
-    'name'    : "Or three plusses.",
-    'textile' : "A normal paragraph +++ is unaffected.\n\n+++\n\nAnd here is another paragraph.",
-    'html'    : "<p>A normal paragraph <ins>+</ins> is unaffected.</p>\n<hr />\n<p>And here is another paragraph.</p>"
-  },
-  {
     'name'    : "Or three underscores.",
     'textile' : "A normal paragraph ___ is unaffected.\n\n___\n\nAnd here is another paragraph.",
     'html'    : "<p>A normal paragraph <em>_</em> is unaffected.</p>\n<hr />\n<p>And here is another paragraph.</p>"
