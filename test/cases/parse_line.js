@@ -165,5 +165,19 @@ parse_line = [
     'name'    : "Insertions and deletions can apply to many words as well.",
     'textile' : "You are a -perfect ass- +total gentleman+, good sir.",
     'html'    : "You are a <del>perfect ass</del> <ins>total gentleman</ins>, good sir."
-  }
+  },
+
+
+
+  // Superscripts/subscripts.
+  {
+    'name'    : "You can superscript words by surrounding them with carets.",
+    'textile' : "Move your computing to the ^cloud^ where it can be up high.",
+    'html'    : "Move your computing to the <sup>cloud</sup> where it can be up high."
+  },
+  {
+    'name'    : "You can subscript words by surrounding them with tildes.",
+    'textile' : "Move your computing ~underground~ where it can be low.",
+    'html'    : "Move your computing <sub>underground</sub> where it can be low."
+  },
 ]
