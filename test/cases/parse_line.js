@@ -3,8 +3,23 @@ parse_line = [
 
   {
     'name'    : "A triplet of periods will become an ellipsis.",
-    'textile' : "Oh... I wish I were...",
-    'html'    : "Oh&#8230; I wish I were&#8230;"
+    'textile' : "Oh ... I wish I were an Oscar Mayer weiner...",
+    'html'    : "Oh &#8230; I wish I were an Oscar Mayer weiner&#8230;"
+  },
+  {
+    'name'    : "Ellipses will work even when surrounded by words.",
+    'textile' : "Oh...fuck it.",
+    'html'    : "Oh&#8230;fuck it."
+  },
+  {
+    'name'    : "Ellipses will work even starting a line.",
+    'textile' : "...what did you call me?",
+    'html'    : "&#8230;what did you call me?"
+  },
+  {
+    'name'    : "More than three periods will be partially converted to an ellipsis.",
+    'textile' : "Hello....Newman.",
+    'html'    : "Hello&#8230;.Newman."
   },
 
 
