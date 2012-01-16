@@ -67,14 +67,29 @@ parse_line = [
     'html'    : "If you could copyright the copyright symbol, it would likely look like &#169;&#169;."
   },
   {
+    'name'    : "A lowercase (c) will also be converted to the copyright entity.",
+    'textile' : "Or do it lowercase: (c)(c).",
+    'html'    : "Or do it lowercase: &#169;&#169;."
+  },
+  {
     'name'    : "(TM) will be converted to the trademark entity.",
     'textile' : "If you could trademark the trademark symbol, it would likely look like (TM)(TM).",
     'html'    : "If you could trademark the trademark symbol, it would likely look like &#8482;&#8482;."
   },
   {
+    'name'    : "(tm) also works.",
+    'textile' : "Or do it lowercase: (tm)(tm).",
+    'html'    : "Or do it lowercase: &#8482;&#8482;."
+  },
+  {
     'name'    : "(R) will be converted to whatever entity that is.",
     'textile' : "I forget what the R means, but (R)(R).",
     'html'    : "I forget what the R means, but &#174;&#174;."
+  },
+  {
+    'name'    : "And, finally, (r).",
+    'textile' : "Or do it lowercase: (r)(r).",
+    'html'    : "Or do it lowercase: &#174;&#174;."
   },
 
 

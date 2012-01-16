@@ -6,9 +6,9 @@
     input = input.replace(/\.\.\./g, "&#8230;");
     input = input.replace(/--/g, "&#8212;");
     input = input.replace(/\s-\s/g, " &#8211; ");
-    input = input.replace(/\(C\)/g, "&#169;");
-    input = input.replace(/\(R\)/g, "&#174;");
-    input = input.replace(/\(TM\)/g, "&#8482;");
+    input = input.replace(/\([Cc]\)/g, "&#169;");
+    input = input.replace(/\([Rr]\)/g, "&#174;");
+    input = input.replace(/\((TM|tm)\)/g, "&#8482;");
     input = input.replace(/([\d\s'"])x(?=[\d\s])/g, "$1#215;");
     input = input.replace(/'/g, "&#8217;");
     input = input.replace(/\s"/g, " &#8220;");
