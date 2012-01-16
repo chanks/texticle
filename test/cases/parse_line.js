@@ -180,4 +180,13 @@ parse_line = [
     'textile' : "Move your computing ~underground~ where it can be low.",
     'html'    : "Move your computing <sub>underground</sub> where it can be low."
   },
+
+
+
+  // Code blocks.
+  {
+    'name'    : "You can denote code blocks by surrounding them with at-symbols.",
+    'textile' : "Using Texticle is as simple as putting @Texticle.parse(text)@ in your code!",
+    'html'    : "Using Texticle is as simple as putting <code>Texticle.parse(text)</code> in your code!"
+  },
 ]
