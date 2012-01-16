@@ -191,6 +191,16 @@ parse_line = [
     'textile' : "Citation: ??The Bible?? by God.",
     'html'    : "Citation: <cite>The Bible</cite> by God."
   },
+  {
+    'name'    : "Citations work for titles ending in question marks.",
+    'textile' : "Citation: ??What's Eating Gilbert Grape???",
+    'html'    : "Citation: <cite>What&#8217;s Eating Gilbert Grape?</cite>"
+  },
+  {
+    'name'    : "Citations work for titles containing question marks.",
+    'textile' : "Citation: ??What's Eating Gilbert Grape?: The Musical??",
+    'html'    : "Citation: <cite>What&#8217;s Eating Gilbert Grape?: The Musical</cite>"
+  },
 
 
 
