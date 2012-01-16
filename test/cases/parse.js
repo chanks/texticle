@@ -75,5 +75,5 @@ parse = [
     'name'    : "Or three underscores.",
     'textile' : "A normal paragraph ___ is unaffected.\n\n___\n\nAnd here is another paragraph.",
     'html'    : "<p>A normal paragraph <em>_</em> is unaffected.</p>\n<hr />\n<p>And here is another paragraph.</p>"
-  }
+  },
 ]
