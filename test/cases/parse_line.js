@@ -134,12 +134,17 @@ parse_line = [
 
 
 
-  // Acronyms.
+  // Acronyms and Citations.
 
   {
     'name'    : "Acronyms can be specified with an acronym tag.",
     'textile' : "I call BS(Bullshit) on you, good sir.",
     'html'    : "I call <acronym title=\"Bullshit\">BS</acronym> on you, good sir."
+  },
+  {
+    'name'    : "Citations can be demarcated by double question marks.",
+    'textile' : "Citation: ??The Bible?? by God.",
+    'html'    : "Citation: <cite>The Bible</cite> by God."
   },
 
 
