@@ -167,6 +167,11 @@ parse_line = [
     'html'    : "I said, &#8220;Mr. Darcy, fuck off!&#8221; right to his face!"
   },
   {
+    'name'    : "Curly quotations also work at the beginning and ending of lines.",
+    'textile' : "\"Oy, my giblets!\"",
+    'html'    : "&#8220;Oy, my giblets!&#8221;"
+  },
+  {
     'name'    : "Single quotes are also converted to curly versions.",
     'textile' : "And then he said, \"I said, 'Mr. Darcy, fuck off!' right to his face!\" right to my face!",
     'html'    : "And then he said, &#8220;I said, &#8217;Mr. Darcy, fuck off!&#8217; right to his face!&#8221; right to my face!"

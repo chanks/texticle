@@ -9,8 +9,8 @@ Texticle.parse_line = (input) ->
   input = input.replace /\((TM|tm)\)/g,           "&#8482;"
   input = input.replace /([\d\s'"])x(?=[\d\s])/g, "$1#215;"
   input = input.replace /'/g,                     "&#8217;"
-  input = input.replace /\s"/g,                   " &#8220;"
-  input = input.replace /"\s/g,                   "&#8221; "
+  input = input.replace /^"|(\s)"/g,              "$1&#8220;"
+  input = input.replace /"(\s)|"$/g,              "&#8221;$1"
 
   input = input.replace /\*\*(.+)\*\*/g,     "<b>$1</b>"
   input = input.replace /__(.+)__/g,         "<i>$1</i>"
