@@ -142,9 +142,39 @@ parse_line = [
     'html'    : "You look <strong>really</strong> ugly in that dress."
   },
   {
+    'name'    : "Multiple sets of asterisks will parse properly.",
+    'textile' : "You look *really* ugly in *that* dress.",
+    'html'    : "You look <strong>really</strong> ugly in <strong>that</strong> dress."
+  },
+  {
+    'name'    : "Asterisks at either end of the sentence will still parse correctly.",
+    'textile' : "*Any* way you want it, *that's the way you need it.*",
+    'html'    : "<strong>Any</strong> way you want it, <strong>that&#8217;s the way you need it.</strong>"
+  },
+  {
+    'name'    : "Asterisks will not be parsed if there's nothing between them.",
+    'textile' : "Your mother made you in a parking lot. ** My mother made me out of flesh and wire.",
+    'html'    : "Your mother made you in a parking lot. ** My mother made me out of flesh and wire."
+  },
+  {
     'name'    : "Underscores will convert to <em> tags for emphasis.",
     'textile' : "No, I _really_ feel that way!",
     'html'    : "No, I <em>really</em> feel that way!"
+  },
+  {
+    'name'    : "Multiple sets of underscores will parse properly.",
+    'textile' : "You look _really_ ugly in _that_ dress.",
+    'html'    : "You look <em>really</em> ugly in <em>that</em> dress."
+  },
+  {
+    'name'    : "Underscores at either end of the sentence will still parse correctly.",
+    'textile' : "_Any_ way you want it, _that's the way you need it._",
+    'html'    : "<em>Any</em> way you want it, <em>that&#8217;s the way you need it.</em>"
+  },
+  {
+    'name'    : "Underscores will not be parsed if there's nothing between them.",
+    'textile' : "Your mother made you in a parking lot. __ My mother made me out of flesh and wire.",
+    'html'    : "Your mother made you in a parking lot. __ My mother made me out of flesh and wire."
   },
   {
     'name'    : "Double asterisks will convert to <b> tags for strength.",
@@ -152,9 +182,39 @@ parse_line = [
     'html'    : "You look <b>really</b> ugly in that dress."
   },
   {
+    'name'    : "Multiple sets of double asterisks will parse properly.",
+    'textile' : "You look **really** ugly in **that** dress.",
+    'html'    : "You look <b>really</b> ugly in <b>that</b> dress."
+  },
+  {
+    'name'    : "Double asterisks at either end of the sentence will still parse correctly.",
+    'textile' : "**Any** way you want it, **that's the way you need it.**",
+    'html'    : "<b>Any</b> way you want it, <b>that&#8217;s the way you need it.</b>"
+  },
+  {
+    'name'    : "Double asterisks around nothing will be parsed as if they were single asterisks around some other asterisks.",
+    'textile' : "Your mother made you in a parking lot. **** My mother made me out of flesh and wire.",
+    'html'    : "Your mother made you in a parking lot. <strong>**</strong> My mother made me out of flesh and wire."
+  },
+  {
     'name'    : "Double underscores will convert to <i> tags for emphasis.",
     'textile' : "No, I __really__ feel that way!",
     'html'    : "No, I <i>really</i> feel that way!"
+  },
+  {
+    'name'    : "Multiple sets of double underscores will parse properly.",
+    'textile' : "You look __really__ ugly in __that__ dress.",
+    'html'    : "You look <i>really</i> ugly in <i>that</i> dress."
+  },
+  {
+    'name'    : "Double underscores at either end of the sentence will still parse correctly.",
+    'textile' : "__Any__ way you want it, __that's the way you need it.__",
+    'html'    : "<i>Any</i> way you want it, <i>that&#8217;s the way you need it.</i>"
+  },
+  {
+    'name'    : "Double underscores around nothing will be parsed as if they were single underscores around some other underscores.",
+    'textile' : "Your mother made you in a parking lot. ____ My mother made me out of flesh and wire.",
+    'html'    : "Your mother made you in a parking lot. <em>__</em> My mother made me out of flesh and wire."
   },
 
 

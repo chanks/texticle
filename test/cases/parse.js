@@ -59,7 +59,7 @@ parse = [
   {
     'name'    : "The line also can't have any other text on it.",
     'textile' : "A normal paragraph *** is unaffected.\n\n***blah\n\nAnd here is another paragraph.",
-    'html'    : "<p>A normal paragraph <strong>*</strong> is unaffected.</p>\n<p><strong>*</strong>blah</p>\n<p>And here is another paragraph.</p>"
+    'html'    : "<p>A normal paragraph <strong>*</strong> is unaffected.</p>\n<p>***blah</p>\n<p>And here is another paragraph.</p>"
   },
   {
     'name'    : "Though whitespace doesn't count.",
