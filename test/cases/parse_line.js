@@ -349,4 +349,19 @@ parse_line = [
     'textile' : "Using Texticle is as simple as putting @Texticle.parse(text)@ in your code!",
     'html'    : "Using Texticle is as simple as putting <code>Texticle.parse(text)</code> in your code!"
   },
+  {
+    'name'    : "Multiple code blocks can exist in the same line.",
+    'textile' : "Using @Texticle@ is as simple as putting @Texticle.parse(text)@ in your code!",
+    'html'    : "Using <code>Texticle</code> is as simple as putting <code>Texticle.parse(text)</code> in your code!"
+  },
+  {
+    'name'    : "Code blocks work at the beginning and ending of lines.",
+    'textile' : "@coffeescript_is_awesome = true if 2 + 2 == 4@",
+    'html'    : "<code>coffeescript_is_awesome = true if 2 + 2 == 4</code>"
+  },
+  {
+    'name'    : "Multiple email addresses won't accidentally trigger code blocks.",
+    'textile' : "chris@gmail.com is way better than chris2462462@gmail.com.",
+    'html'    : "chris@gmail.com is way better than chris2462462@gmail.com."
+  },
 ]
