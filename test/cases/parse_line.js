@@ -201,6 +201,21 @@ parse_line = [
     'textile' : "Citation: ??What's Eating Gilbert Grape?: The Musical??",
     'html'    : "Citation: <cite>What&#8217;s Eating Gilbert Grape?: The Musical</cite>"
   },
+  {
+    'name'    : "Multiple citations on the same line are supported.",
+    'textile' : "??What's Eating Gilbert Grape??? is alright, but ??What's Eating Gilbert Grape?: The Musical?? is phenomenal!",
+    'html'    : "<cite>What&#8217;s Eating Gilbert Grape?</cite> is alright, but <cite>What&#8217;s Eating Gilbert Grape?: The Musical</cite> is phenomenal!"
+  },
+  {
+    'name'    : "Multiple complicated citations on the same line are supported.",
+    'textile' : "??What's Eating Gilbert Grape??? is alright, but ??What's Eating Gilbert Grape?: The Musical?? is phenomenal!",
+    'html'    : "<cite>What&#8217;s Eating Gilbert Grape?</cite> is alright, but <cite>What&#8217;s Eating Gilbert Grape?: The Musical</cite> is phenomenal!"
+  },
+  {
+    'name'    : "Multiple complicated citations with many following question marks are supported.",
+    'textile' : "??What's Eating Gilbert Grape??? is an alright title, but I would have preferred ??What's Eating Gilbert Grape??????",
+    'html'    : "<cite>What&#8217;s Eating Gilbert Grape?</cite> is an alright title, but I would have preferred <cite>What&#8217;s Eating Gilbert Grape????</cite>"
+  },
 
 
 
