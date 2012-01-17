@@ -297,14 +297,34 @@ parse_line = [
     'html'    : "You are <ins>not</ins> a very good liar, good sir."
   },
   {
-    'name'    : "Surround a word with minuses to indicate its insertion.",
+    'name'    : "Insertions work multiple times in a line.",
+    'textile' : "I am +not+ being sarcastic when I say you are +not+ a good person, good sir.",
+    'html'    : "I am <ins>not</ins> being sarcastic when I say you are <ins>not</ins> a good person, good sir."
+  },
+  {
+    'name'    : "Surround a word with minuses to indicate its deletion.",
     'textile' : "Hello -cruel- world.",
     'html'    : "Hello <del>cruel</del> world."
   },
   {
+    'name'    : "Deletions work multiple times in a line.",
+    'textile' : "I am -not- being sarcastic when I say you are -not- a good person, good sir.",
+    'html'    : "I am <del>not</del> being sarcastic when I say you are <del>not</del> a good person, good sir."
+  },
+  {
     'name'    : "Insertions and deletions can apply to many words as well.",
-    'textile' : "You are a -perfect ass- +total gentleman+, good sir.",
-    'html'    : "You are a <del>perfect ass</del> <ins>total gentleman</ins>, good sir."
+    'textile' : "You are a -perfect ass,- +total gentleman,+ good sir.",
+    'html'    : "You are a <del>perfect ass,</del> <ins>total gentleman,</ins> good sir."
+  },
+  {
+    'name'    : "Insertions and deletions work at the edges of lines.",
+    'textile' : "+Bob+ -Peter- is a good +person.+ -ferret.-",
+    'html'    : "<ins>Bob</ins> <del>Peter</del> is a good <ins>person.</ins> <del>ferret.</del>"
+  },
+  {
+    'name'    : "Insertions only work when they surround something (an empty deletion is an em dash).",
+    'textile' : "This is an unedited sentence, isn't it? ++ Yes sir, it is!",
+    'html'    : "This is an unedited sentence, isn&#8217;t it? ++ Yes sir, it is!"
   },
 
 
