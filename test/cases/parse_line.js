@@ -187,6 +187,16 @@ parse_line = [
     'html'    : "I call <acronym title=\"Bullshit\">BS</acronym> on you, good sir."
   },
   {
+    'name'    : "Multiple acronyms in the same line will work.",
+    'textile' : "I call BS(Bullshit) on you, GS(good sir).",
+    'html'    : "I call <acronym title=\"Bullshit\">BS</acronym> on you, <acronym title=\"good sir\">GS</acronym>."
+  },
+  {
+    'name'    : "Acronyms require something present in the parentheses.",
+    'textile' : "You can write a function called FN() if you like.",
+    'html'    : "You can write a function called FN() if you like."
+  },
+  {
     'name'    : "Citations can be demarcated by double question marks.",
     'textile' : "Citation: ??The Bible?? by God.",
     'html'    : "Citation: <cite>The Bible</cite> by God."

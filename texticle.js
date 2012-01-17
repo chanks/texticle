@@ -20,7 +20,7 @@
     input = input.replace(/\^(.+)\^/g, "<sup>$1</sup>");
     input = input.replace(/~(.+)~/g, "<sub>$1</sub>");
     input = input.replace(/@(.+)@/g, "<code>$1</code>");
-    input = input.replace(/([A-Z]+)\((.+)\)/g, "<acronym title=\"$2\">$1</acronym>");
+    input = input.replace(/([A-Z]+)\((.+?)\)/g, "<acronym title=\"$2\">$1</acronym>");
     input = input.replace(/(\s|^)\?\?(.+?)\?\?(\s|$)/g, "$1<cite>$2</cite>$3");
     input = input.replace(/\s\+(.+)\+/g, " <ins>$1</ins>");
     return input = input.replace(/\s\-(.+)\-/g, " <del>$1</del>");
