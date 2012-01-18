@@ -11,6 +11,7 @@
     "\\([Cc]\\)": "&#169;",
     "\\([Rr]\\)": "&#174;",
     "\\((TM|tm)\\)": "&#8482;",
+    "([\\d\\s'\"])x(?=[\\d\\s])": "$1#215;",
     "'": "&#8217;",
     "(^|\\s)\"": "$1&#8220;",
     "\"(\\s|$)": "&#8221;$1"
@@ -45,7 +46,6 @@
 
   Texticle.parse_line = function(input) {
     var format, regex;
-    input = input.replace(/([\d\s'"])x(?=[\d\s])/g, "$1#215;");
     for (format in entity_regexes) {
       if (!__hasProp.call(entity_regexes, format)) continue;
       regex = entity_regexes[format];
