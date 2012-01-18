@@ -1,8 +1,19 @@
 (function() {
-  var glyph, tag, tag_regexes, tags,
+  var entities, entity, entity_regexes, glyph, tag, tag_regexes, tags,
     __hasProp = Object.prototype.hasOwnProperty;
 
   window.Texticle = {};
+
+  entities = {
+    "\\.\\.\\.": "&#8230;",
+    "--": "&#8212;",
+    "\\([Cc]\\)": "&#169;",
+    "\\([Rr]\\)": "&#174;",
+    "\\((TM|tm)\\)": "&#8482;",
+    "'": "&#8217;",
+    "(^|\\s)\"": "$1&#8220;",
+    "\"(\\s|$)": "&#8221;$1"
+  };
 
   tags = {
     "\\*\\*": 'b',
@@ -15,7 +26,15 @@
     "\\-": 'del'
   };
 
+  entity_regexes = {};
+
   tag_regexes = {};
+
+  for (glyph in entities) {
+    if (!__hasProp.call(entities, glyph)) continue;
+    entity = entities[glyph];
+    entity_regexes[entity] = RegExp(glyph, "g");
+  }
 
   for (glyph in tags) {
     if (!__hasProp.call(tags, glyph)) continue;
@@ -25,16 +44,13 @@
 
   Texticle.parse_line = function(input) {
     var format, regex;
-    input = input.replace(/\.\.\./g, "&#8230;");
-    input = input.replace(/--/g, "&#8212;");
-    input = input.replace(/^-\s|(\s)-\s/g, "$1&#8211; ");
-    input = input.replace(/\([Cc]\)/g, "&#169;");
-    input = input.replace(/\([Rr]\)/g, "&#174;");
-    input = input.replace(/\((TM|tm)\)/g, "&#8482;");
     input = input.replace(/([\d\s'"])x(?=[\d\s])/g, "$1#215;");
-    input = input.replace(/'/g, "&#8217;");
-    input = input.replace(/^"|(\s)"/g, "$1&#8220;");
-    input = input.replace(/"(\s)|"$/g, "&#8221;$1");
+    input = input.replace(/^-\s|(\s)-\s/g, "$1&#8211; ");
+    for (format in entity_regexes) {
+      if (!__hasProp.call(entity_regexes, format)) continue;
+      regex = entity_regexes[format];
+      input = input.replace(regex, format);
+    }
     input = input.replace(/\^(.+)\^/g, "<sup>$1</sup>");
     input = input.replace(/~(.+)~/g, "<sub>$1</sub>");
     input = input.replace(/([A-Z]+)\((.+?)\)/g, "<acronym title=\"$2\">$1</acronym>");

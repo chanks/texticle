@@ -1,5 +1,15 @@
 window.Texticle = {}
 
+entities =
+  "\\.\\.\\."     : "&#8230;"
+  "--"            : "&#8212;"
+  "\\([Cc]\\)"    : "&#169;"
+  "\\([Rr]\\)"    : "&#174;"
+  "\\((TM|tm)\\)" : "&#8482;"
+  "'"             : "&#8217;"
+  "(^|\\s)\""     : "$1&#8220;"
+  "\"(\\s|$)"     : "&#8221;$1"
+
 tags =
   "\\*\\*" : 'b'
   "__"     : 'i'
@@ -10,22 +20,21 @@ tags =
   "\\+"    : 'ins'
   "\\-"    : 'del'
 
-tag_regexes = {}
+entity_regexes = {}
+tag_regexes    = {}
+
+for own glyph, entity of entities
+  entity_regexes[entity] = RegExp glyph, "g"
 
 for own glyph, tag of tags
   tag_regexes["$1<#{tag}>$2</#{tag}>$3"] = RegExp "(^|\\s)#{glyph}(.+?)#{glyph}($|\\s)", "g"
 
 Texticle.parse_line = (input) ->
-  input = input.replace /\.\.\./g,                "&#8230;"
-  input = input.replace /--/g,                    "&#8212;"
-  input = input.replace /^-\s|(\s)-\s/g,          "$1&#8211; "
-  input = input.replace /\([Cc]\)/g,              "&#169;"
-  input = input.replace /\([Rr]\)/g,              "&#174;"
-  input = input.replace /\((TM|tm)\)/g,           "&#8482;"
   input = input.replace /([\d\s'"])x(?=[\d\s])/g, "$1#215;"
-  input = input.replace /'/g,                     "&#8217;"
-  input = input.replace /^"|(\s)"/g,              "$1&#8220;"
-  input = input.replace /"(\s)|"$/g,              "&#8221;$1"
+  input = input.replace /^-\s|(\s)-\s/g,          "$1&#8211; "
+
+  for own format, regex of entity_regexes
+    input = input.replace regex, format
 
   input = input.replace /\^(.+)\^/g,          "<sup>$1</sup>"
   input = input.replace /~(.+)~/g,            "<sub>$1</sub>"
