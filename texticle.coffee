@@ -1,5 +1,20 @@
 window.Texticle = {}
 
+tags =
+  "\\*\\*" : 'b'
+  "__"     : 'i'
+  "\\*"    : 'strong'
+  "_"      : 'em'
+  "@"      : 'code'
+  "\\?\\?" : 'cite'
+  "\\+"    : 'ins'
+  "\\-"    : 'del'
+
+tag_regexes = {}
+
+for own glyph, tag of tags
+  tag_regexes["$1<#{tag}>$2</#{tag}>$3"] = RegExp "(^|\\s)#{glyph}(.+?)#{glyph}($|\\s)", "g"
+
 Texticle.parse_line = (input) ->
   input = input.replace /\.\.\./g,                "&#8230;"
   input = input.replace /--/g,                    "&#8212;"
@@ -12,17 +27,14 @@ Texticle.parse_line = (input) ->
   input = input.replace /^"|(\s)"/g,              "$1&#8220;"
   input = input.replace /"(\s)|"$/g,              "&#8221;$1"
 
-  input = input.replace /(\s|^)\*\*(.+?)\*\*(\s|$)/g, "$1<b>$2</b>$3"
-  input = input.replace /(\s|^)__(.+?)__(\s|$)/g,     "$1<i>$2</i>$3"
-  input = input.replace /(\s|^)\*(.+?)\*(\s|$)/g,     "$1<strong>$2</strong>$3"
-  input = input.replace /(\s|^)_(.+?)_(\s|$)/g,       "$1<em>$2</em>$3"
-  input = input.replace /\^(.+)\^/g,                  "<sup>$1</sup>"
-  input = input.replace /~(.+)~/g,                    "<sub>$1</sub>"
-  input = input.replace /(\s|^)@(.+?)@(\s|$)/g,       "$1<code>$2</code>$3"
-  input = input.replace /([A-Z]+)\((.+?)\)/g,         "<acronym title=\"$2\">$1</acronym>"
-  input = input.replace /(\s|^)\?\?(.+?)\?\?(\s|$)/g, "$1<cite>$2</cite>$3"
-  input = input.replace /(\s|^)\+(.+?)\+(\s|$)/g,     "$1<ins>$2</ins>$3"
-  input = input.replace /(\s|^)\-(.+?)\-(\s|$)/g,     "$1<del>$2</del>$3"
+  input = input.replace /\^(.+)\^/g,          "<sup>$1</sup>"
+  input = input.replace /~(.+)~/g,            "<sub>$1</sub>"
+  input = input.replace /([A-Z]+)\((.+?)\)/g, "<acronym title=\"$2\">$1</acronym>"
+
+  for own format, regex of tag_regexes
+    input = input.replace regex, format
+
+  input
 
 Texticle.parse = (input) ->
   output = ""

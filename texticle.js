@@ -1,8 +1,30 @@
 (function() {
+  var glyph, tag, tag_regexes, tags,
+    __hasProp = Object.prototype.hasOwnProperty;
 
   window.Texticle = {};
 
+  tags = {
+    "\\*\\*": 'b',
+    "__": 'i',
+    "\\*": 'strong',
+    "_": 'em',
+    "@": 'code',
+    "\\?\\?": 'cite',
+    "\\+": 'ins',
+    "\\-": 'del'
+  };
+
+  tag_regexes = {};
+
+  for (glyph in tags) {
+    if (!__hasProp.call(tags, glyph)) continue;
+    tag = tags[glyph];
+    tag_regexes["$1<" + tag + ">$2</" + tag + ">$3"] = RegExp("(^|\\s)" + glyph + "(.+?)" + glyph + "($|\\s)", "g");
+  }
+
   Texticle.parse_line = function(input) {
+    var format, regex;
     input = input.replace(/\.\.\./g, "&#8230;");
     input = input.replace(/--/g, "&#8212;");
     input = input.replace(/^-\s|(\s)-\s/g, "$1&#8211; ");
@@ -13,17 +35,15 @@
     input = input.replace(/'/g, "&#8217;");
     input = input.replace(/^"|(\s)"/g, "$1&#8220;");
     input = input.replace(/"(\s)|"$/g, "&#8221;$1");
-    input = input.replace(/(\s|^)\*\*(.+?)\*\*(\s|$)/g, "$1<b>$2</b>$3");
-    input = input.replace(/(\s|^)__(.+?)__(\s|$)/g, "$1<i>$2</i>$3");
-    input = input.replace(/(\s|^)\*(.+?)\*(\s|$)/g, "$1<strong>$2</strong>$3");
-    input = input.replace(/(\s|^)_(.+?)_(\s|$)/g, "$1<em>$2</em>$3");
     input = input.replace(/\^(.+)\^/g, "<sup>$1</sup>");
     input = input.replace(/~(.+)~/g, "<sub>$1</sub>");
-    input = input.replace(/(\s|^)@(.+?)@(\s|$)/g, "$1<code>$2</code>$3");
     input = input.replace(/([A-Z]+)\((.+?)\)/g, "<acronym title=\"$2\">$1</acronym>");
-    input = input.replace(/(\s|^)\?\?(.+?)\?\?(\s|$)/g, "$1<cite>$2</cite>$3");
-    input = input.replace(/(\s|^)\+(.+?)\+(\s|$)/g, "$1<ins>$2</ins>$3");
-    return input = input.replace(/(\s|^)\-(.+?)\-(\s|$)/g, "$1<del>$2</del>$3");
+    for (format in tag_regexes) {
+      if (!__hasProp.call(tag_regexes, format)) continue;
+      regex = tag_regexes[format];
+      input = input.replace(regex, format);
+    }
+    return input;
   };
 
   Texticle.parse = function(input) {
