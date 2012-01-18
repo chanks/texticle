@@ -1,47 +1,43 @@
 window.Texticle = {}
 
-entities =
-  "\\.\\.\\."                  : "&#8230;"
-  "(^|\\s)-(\\s|$)"            : "$1&#8211;$2"
-  "--"                         : "&#8212;"
-  "\\([Cc]\\)"                 : "&#169;"
-  "\\([Rr]\\)"                 : "&#174;"
-  "\\((TM|tm)\\)"              : "&#8482;"
-  "([\\d\\s'\"])x(?=[\\d\\s])" : "$1#215;"
-  "'"                          : "&#8217;"
-  "(^|\\s)\""                  : "$1&#8220;"
-  "\"(\\s|$)"                  : "&#8221;$1"
+regexes = [
+  # Entities.
+  [/\.\.\./g,                 "&#8230;"]
+  [/(^|\s)-(\s|$)/g,          "$1&#8211;$2"]
+  [/--/g,                     "&#8212;"]
+  [/\([Cc]\)/g,               "&#169;"]
+  [/\([Rr]\)/g,               "&#174;"]
+  [/\((TM|tm)\)/g,            "&#8482;"]
+  [/([\d\s'\"])x(?=[\d\s])/g, "$1#215;"]
+  [/'/g,                      "&#8217;"]
+  [/(^|\s)"/g,                "$1&#8220;"]
+  [/"(\s|$)/g,                "&#8221;$1"]
 
-tags =
-  "\\*\\*" : 'b'
-  "__"     : 'i'
-  "\\*"    : 'strong'
-  "_"      : 'em'
-  "@"      : 'code'
-  "\\?\\?" : 'cite'
-  "\\+"    : 'ins'
-  "\\-"    : 'del'
+  # Unusual tags.
+  [/\^(.+)\^/g,          "<sup>$1</sup>"]
+  [/~(.+)~/g,            "<sub>$1</sub>"]
+  [/([A-Z]+)\((.+?)\)/g, "<acronym title=\"$2\">$1</acronym>"]
+]
 
-entity_regexes = {}
-tag_regexes    = {}
+# Typical tags.
+tags = [
+  ["\\*\\*", 'b']
+  ["__",     'i']
+  ["\\*",    'strong']
+  ["_",      'em']
+  ["@",      'code']
+  ["\\?\\?", 'cite']
+  ["\\+",    'ins']
+  ["\\-",    'del']
+]
 
-for own glyph, entity of entities
-  entity_regexes[entity] = RegExp glyph, "g"
-
-for own glyph, tag of tags
-  tag_regexes["$1<#{tag}>$2</#{tag}>$3"] = RegExp "(^|\\s)#{glyph}(.+?)#{glyph}($|\\s)", "g"
+for [glyph, tag] in tags
+  regex  = RegExp "(^|\\s)#{glyph}(.+?)#{glyph}($|\\s)", "g"
+  format = "$1<#{tag}>$2</#{tag}>$3"
+  regexes.push [regex, format]
 
 Texticle.parse_line = (input) ->
-  for own format, regex of entity_regexes
-    input = input.replace regex, format
-
-  input = input.replace /\^(.+)\^/g,          "<sup>$1</sup>"
-  input = input.replace /~(.+)~/g,            "<sub>$1</sub>"
-  input = input.replace /([A-Z]+)\((.+?)\)/g, "<acronym title=\"$2\">$1</acronym>"
-
-  for own format, regex of tag_regexes
-    input = input.replace regex, format
-
+  input = input.replace regex, format for [regex, format] in regexes
   input
 
 Texticle.parse = (input) ->

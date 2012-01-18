@@ -1,73 +1,34 @@
 (function() {
-  var entities, entity, entity_regexes, glyph, tag, tag_regexes, tags,
-    __hasProp = Object.prototype.hasOwnProperty;
+  var format, glyph, regex, regexes, tag, tags, _i, _len, _ref;
 
   window.Texticle = {};
 
-  entities = {
-    "\\.\\.\\.": "&#8230;",
-    "(^|\\s)-(\\s|$)": "$1&#8211;$2",
-    "--": "&#8212;",
-    "\\([Cc]\\)": "&#169;",
-    "\\([Rr]\\)": "&#174;",
-    "\\((TM|tm)\\)": "&#8482;",
-    "([\\d\\s'\"])x(?=[\\d\\s])": "$1#215;",
-    "'": "&#8217;",
-    "(^|\\s)\"": "$1&#8220;",
-    "\"(\\s|$)": "&#8221;$1"
-  };
+  regexes = [[/\.\.\./g, "&#8230;"], [/(^|\s)-(\s|$)/g, "$1&#8211;$2"], [/--/g, "&#8212;"], [/\([Cc]\)/g, "&#169;"], [/\([Rr]\)/g, "&#174;"], [/\((TM|tm)\)/g, "&#8482;"], [/([\d\s'\"])x(?=[\d\s])/g, "$1#215;"], [/'/g, "&#8217;"], [/(^|\s)"/g, "$1&#8220;"], [/"(\s|$)/g, "&#8221;$1"], [/\^(.+)\^/g, "<sup>$1</sup>"], [/~(.+)~/g, "<sub>$1</sub>"], [/([A-Z]+)\((.+?)\)/g, "<acronym title=\"$2\">$1</acronym>"]];
 
-  tags = {
-    "\\*\\*": 'b',
-    "__": 'i',
-    "\\*": 'strong',
-    "_": 'em',
-    "@": 'code',
-    "\\?\\?": 'cite',
-    "\\+": 'ins',
-    "\\-": 'del'
-  };
+  tags = [["\\*\\*", 'b'], ["__", 'i'], ["\\*", 'strong'], ["_", 'em'], ["@", 'code'], ["\\?\\?", 'cite'], ["\\+", 'ins'], ["\\-", 'del']];
 
-  entity_regexes = {};
-
-  tag_regexes = {};
-
-  for (glyph in entities) {
-    if (!__hasProp.call(entities, glyph)) continue;
-    entity = entities[glyph];
-    entity_regexes[entity] = RegExp(glyph, "g");
-  }
-
-  for (glyph in tags) {
-    if (!__hasProp.call(tags, glyph)) continue;
-    tag = tags[glyph];
-    tag_regexes["$1<" + tag + ">$2</" + tag + ">$3"] = RegExp("(^|\\s)" + glyph + "(.+?)" + glyph + "($|\\s)", "g");
+  for (_i = 0, _len = tags.length; _i < _len; _i++) {
+    _ref = tags[_i], glyph = _ref[0], tag = _ref[1];
+    regex = RegExp("(^|\\s)" + glyph + "(.+?)" + glyph + "($|\\s)", "g");
+    format = "$1<" + tag + ">$2</" + tag + ">$3";
+    regexes.push([regex, format]);
   }
 
   Texticle.parse_line = function(input) {
-    var format, regex;
-    for (format in entity_regexes) {
-      if (!__hasProp.call(entity_regexes, format)) continue;
-      regex = entity_regexes[format];
-      input = input.replace(regex, format);
-    }
-    input = input.replace(/\^(.+)\^/g, "<sup>$1</sup>");
-    input = input.replace(/~(.+)~/g, "<sub>$1</sub>");
-    input = input.replace(/([A-Z]+)\((.+?)\)/g, "<acronym title=\"$2\">$1</acronym>");
-    for (format in tag_regexes) {
-      if (!__hasProp.call(tag_regexes, format)) continue;
-      regex = tag_regexes[format];
+    var _j, _len2, _ref2;
+    for (_j = 0, _len2 = regexes.length; _j < _len2; _j++) {
+      _ref2 = regexes[_j], regex = _ref2[0], format = _ref2[1];
       input = input.replace(regex, format);
     }
     return input;
   };
 
   Texticle.parse = function(input) {
-    var heading, in_paragraph, index, line, lines, next_line, output, _len;
+    var heading, in_paragraph, index, line, lines, next_line, output, _len2;
     output = "";
     in_paragraph = false;
     lines = input.split("\n");
-    for (index = 0, _len = lines.length; index < _len; index++) {
+    for (index = 0, _len2 = lines.length; index < _len2; index++) {
       line = lines[index];
       next_line = lines[index + 1];
       if (!line.match(/\S/)) continue;
