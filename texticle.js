@@ -6,6 +6,7 @@
 
   entities = {
     "\\.\\.\\.": "&#8230;",
+    "(^|\\s)-(\\s|$)": "$1&#8211;$2",
     "--": "&#8212;",
     "\\([Cc]\\)": "&#169;",
     "\\([Rr]\\)": "&#174;",
@@ -45,7 +46,6 @@
   Texticle.parse_line = function(input) {
     var format, regex;
     input = input.replace(/([\d\s'"])x(?=[\d\s])/g, "$1#215;");
-    input = input.replace(/^-\s|(\s)-\s/g, "$1&#8211; ");
     for (format in entity_regexes) {
       if (!__hasProp.call(entity_regexes, format)) continue;
       regex = entity_regexes[format];

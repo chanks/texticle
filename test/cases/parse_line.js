@@ -66,6 +66,11 @@ parse_line = [
     'textile' : "- This lets me list my thoughts more clearly.",
     'html'    : "&#8211; This lets me list my thoughts more clearly."
   },
+  {
+    'name'    : "A hyphen at the end of a line will be converted to an en dash.",
+    'textile' : "Dearest Dr. Darcy -",
+    'html'    : "Dearest Dr. Darcy &#8211;"
+  },
 
 
 
