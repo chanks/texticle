@@ -379,4 +379,18 @@ parse_line = [
     'textile' : "chris@gmail.com is way better than chris2462462@gmail.com.",
     'html'    : "chris@gmail.com is way better than chris2462462@gmail.com."
   },
+
+
+
+  // Tight notation.
+  {
+    'name'    : "Tags can be used without surrounding whitespace by using tight notation (square brackets).",
+    'textile' : "f(x, n) = log[~4~]x[^n^]",
+    'html'    : "f(x, n) = log<sub>4</sub>x<sup>n</sup>"
+  },
+  {
+    'name'    : "Tight notation can be used with any tag multiple times in a line.",
+    'textile' : "This is abso[*fucking*]lutely re[*donk*]ulous.",
+    'html'    : "This is abso<strong>fucking</strong>lutely re<strong>donk</strong>ulous."
+  },
 ]
