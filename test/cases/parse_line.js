@@ -341,9 +341,19 @@ parse_line = [
     'html'    : "Move your computing to the <sup>cloud</sup> where it can be up high."
   },
   {
+    'name'    : "Multiple superscripts on the same line will work.",
+    'textile' : "Move your computing to the ^cloud^ where it can be up ^high.^",
+    'html'    : "Move your computing to the <sup>cloud</sup> where it can be up <sup>high.</sup>"
+  },
+  {
     'name'    : "You can subscript words by surrounding them with tildes.",
     'textile' : "Move your computing ~underground~ where it can be low.",
     'html'    : "Move your computing <sub>underground</sub> where it can be low."
+  },
+  {
+    'name'    : "Multiple subscripts on the same line will work.",
+    'textile' : "Move your computing ~underground~ where it can be ~low.~",
+    'html'    : "Move your computing <sub>underground</sub> where it can be <sub>low.</sub>"
   },
 
 

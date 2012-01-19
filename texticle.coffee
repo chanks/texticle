@@ -13,9 +13,7 @@ regexes = [
   [/(^|\s)"/g,                "$1&#8220;"]
   [/"(\s|$)/g,                "&#8221;$1"]
 
-  # Unusual tags.
-  [/\^(.+)\^/g,          "<sup>$1</sup>"]
-  [/~(.+)~/g,            "<sub>$1</sub>"]
+  # The acronym tag is unusual.
   [/([A-Z]+)\((.+?)\)/g, "<acronym title=\"$2\">$1</acronym>"]
 ]
 
@@ -29,6 +27,8 @@ tags = [
   ["\\?\\?", 'cite']
   ["\\+",    'ins']
   ["\\-",    'del']
+  ["\\^",    'sup']
+  ["~",      'sub']
 ]
 
 for [glyph, tag] in tags
