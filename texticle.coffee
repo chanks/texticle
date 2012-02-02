@@ -41,9 +41,6 @@ for [glyph, tag] in tags
   regex  = RegExp "(^|\\s)#{glyph}(.+?)#{glyph}($|\\s)", "g"
   format = "$1<#{tag}>$2</#{tag}>$3"
 
-  tight_regex  = RegExp "\\[#{glyph}(.+?)#{glyph}\\]", "g"
-  tight_format = "<#{tag}>$1</#{tag}>"
-
   regexes.push [regex, format]
 
 Texticle.parse_line = (input) ->

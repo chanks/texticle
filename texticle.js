@@ -1,5 +1,5 @@
 (function() {
-  var endline, format, glyph, regex, regexes, tag, tags, tight_format, tight_regex, _i, _len, _ref;
+  var endline, format, glyph, regex, regexes, tag, tags, _i, _len, _ref;
 
   window.Texticle = {};
 
@@ -13,8 +13,6 @@
     _ref = tags[_i], glyph = _ref[0], tag = _ref[1];
     regex = RegExp("(^|\\s)" + glyph + "(.+?)" + glyph + "($|\\s)", "g");
     format = "$1<" + tag + ">$2</" + tag + ">$3";
-    tight_regex = RegExp("\\[" + glyph + "(.+?)" + glyph + "\\]", "g");
-    tight_format = "<" + tag + ">$1</" + tag + ">";
     regexes.push([regex, format]);
   }
 
