@@ -15,6 +15,10 @@ regexes = [
 
   # The acronym tag is unusual.
   [/([A-Z]+)\((.+?)\)/g, "<acronym title=\"$2\">$1</acronym>"]
+
+  # Special, tight versions of the super/subscript tags.
+  [/\[\^(.+?)\^\]/g, "<sup>$1</sup>"]
+  [/\[~(.+?)~\]/g,   "<sub>$1</sub>"]
 ]
 
 # Typical tags.
@@ -38,7 +42,7 @@ for [glyph, tag] in tags
   tight_regex  = RegExp "\\[#{glyph}(.+?)#{glyph}\\]", "g"
   tight_format = "<#{tag}>$1</#{tag}>"
 
-  regexes.push [regex, format], [tight_regex, tight_format]
+  regexes.push [regex, format]
 
 Texticle.parse_line = (input) ->
   input = input.replace regex, format for [regex, format] in regexes
