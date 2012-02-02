@@ -360,6 +360,16 @@ parse_line = [
     'textile' : "f(x, n) = log[~4~]x[^n^]",
     'html'    : "f(x, n) = log<sub>4</sub>x<sup>n</sup>"
   },
+  {
+    'name'    : "Superscripting a whole phrase will also work.",
+    'textile' : "^(image courtesy NASA)^",
+    'html'    : "<sup>(image courtesy NASA)</sup>"
+  },
+  {
+    'name'    : "Subscripting a whole phrase will also work.",
+    'textile' : "~(image courtesy NASA)~",
+    'html'    : "<sub>(image courtesy NASA)</sub>"
+  },
 
 
 
