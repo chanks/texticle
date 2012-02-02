@@ -1,7 +1,9 @@
 (function() {
-  var format, glyph, regex, regexes, tag, tags, tight_format, tight_regex, _i, _len, _ref;
+  var endline, format, glyph, regex, regexes, tag, tags, tight_format, tight_regex, _i, _len, _ref;
 
   window.Texticle = {};
+
+  endline = "\n";
 
   regexes = [[/\.\.\./g, "&#8230;"], [/(^|\s)-(\s|$)/g, "$1&#8211;$2"], [/--/g, "&#8212;"], [/\([Cc]\)/g, "&#169;"], [/\([Rr]\)/g, "&#174;"], [/\((TM|tm)\)/g, "&#8482;"], [/([\d\s'\"])x(?=[\d\s])/g, "$1#215;"], [/'/g, "&#8217;"], [/(^|\s)"/g, "$1&#8220;"], [/"(\s|$)/g, "&#8221;$1"], [/([A-Z]+)\((.+?)\)/g, "<acronym title=\"$2\">$1</acronym>"], [/\[\^(.+?)\^\]/g, "<sup>$1</sup>"], [/\[~(.+?)~\]/g, "<sub>$1</sub>"]];
 
@@ -29,17 +31,17 @@
     var heading, in_paragraph, index, line, lines, next_line, output, _len2;
     output = "";
     in_paragraph = false;
-    lines = input.split("\n");
+    lines = input.split(endline);
     for (index = 0, _len2 = lines.length; index < _len2; index++) {
       line = lines[index];
       next_line = lines[index + 1];
       if (!line.match(/\S/)) continue;
       if (line.match(/^[*\-_\s]{3,}$/)) {
-        output += "<hr />\n";
+        output += "<hr />" + endline;
         continue;
       }
       if (heading = /^h(\d)\.\s*(.*)/.exec(line)) {
-        output += "<h" + heading[1] + ">" + heading[2] + "</h" + heading[1] + ">\n";
+        output += ("<h" + heading[1] + ">" + heading[2] + "</h" + heading[1] + ">") + endline;
         continue;
       }
       if (!in_paragraph) {
@@ -48,9 +50,9 @@
       }
       output += Texticle.parse_line(line);
       if (next_line && next_line.match(/\S/)) {
-        output += "<br />\n";
+        output += "<br />" + endline;
       } else {
-        output += "</p>\n";
+        output += "</p>" + endline;
         in_paragraph = false;
       }
     }

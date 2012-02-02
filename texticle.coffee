@@ -1,5 +1,7 @@
 window.Texticle = {}
 
+endline = "\n"
+
 regexes = [
   # Entities.
   [/\.\.\./g,                 "&#8230;"]
@@ -53,7 +55,7 @@ Texticle.parse = (input) ->
 
   in_paragraph = false
 
-  lines = input.split "\n"
+  lines = input.split endline
 
   for line, index in lines
     next_line = lines[index + 1]
@@ -62,12 +64,12 @@ Texticle.parse = (input) ->
     continue unless line.match(/\S/)
 
     if line.match(/^[*\-_\s]{3,}$/)
-      output += "<hr />\n"
+      output += "<hr />" + endline
       continue
 
     # Check for heading.
     if heading = /^h(\d)\.\s*(.*)/.exec line
-      output += "<h#{heading[1]}>#{heading[2]}</h#{heading[1]}>\n"
+      output += "<h#{heading[1]}>#{heading[2]}</h#{heading[1]}>" + endline
       continue
 
     # Start a paragraph unless we're already in one.
@@ -80,10 +82,10 @@ Texticle.parse = (input) ->
 
     # If the next line isn't empty, it's a line break.
     if next_line and next_line.match(/\S/)
-      output += "<br />\n"
+      output += "<br />" + endline
     else
       # If there isn't a next line, or if the next line is empty, leave the paragraph.
-      output += "</p>\n"
+      output += "</p>" + endline
       in_paragraph = false
 
   # Trim trailing whitespace.
