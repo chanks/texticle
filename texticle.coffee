@@ -58,9 +58,9 @@ Texticle.parse = (input) ->
     next_line = lines[index + 1]
 
     # Skip empty lines.
-    continue unless line.match(/\S/)
+    continue unless line.match /\S/
 
-    if line.match(/^[*\-_\s]{3,}$/)
+    if line.match /^[*\-_\s]{3,}$/
       output += "<hr />" + endline
       continue
 
@@ -78,7 +78,7 @@ Texticle.parse = (input) ->
     output += Texticle.parse_line(line)
 
     # If the next line isn't empty, it's a line break.
-    if next_line and next_line.match(/\S/)
+    if next_line and next_line.match /\S/
       output += "<br />" + endline
     else
       # If there isn't a next line, or if the next line is empty, leave the paragraph.
