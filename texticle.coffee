@@ -38,8 +38,8 @@ tags = [
 ]
 
 for [glyph, tag] in tags
-  regex  = RegExp "(^|\\s)#{glyph}(.+?)#{glyph}($|\\s)", "g"
-  format = "$1<#{tag}>$2</#{tag}>$3"
+  regex  = RegExp "(^|\\s)#{glyph}([^\\s])(.+?)?([^\\s])?#{glyph}($|\\s)", "g"
+  format = "$1<#{tag}>$2$3$4</#{tag}>$5"
 
   regexes.push [regex, format]
 

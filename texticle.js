@@ -12,8 +12,8 @@
 
   for (_i = 0, _len = tags.length; _i < _len; _i++) {
     _ref = tags[_i], glyph = _ref[0], tag = _ref[1];
-    regex = RegExp("(^|\\s)" + glyph + "(.+?)" + glyph + "($|\\s)", "g");
-    format = "$1<" + tag + ">$2</" + tag + ">$3";
+    regex = RegExp("(^|\\s)" + glyph + "([^\\s])(.+?)?([^\\s])?" + glyph + "($|\\s)", "g");
+    format = "$1<" + tag + ">$2$3$4</" + tag + ">$5";
     regexes.push([regex, format]);
   }
 

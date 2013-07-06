@@ -386,4 +386,18 @@ parse_line = [
     'textile' : "chris@gmail.com is way better than chris2462462@gmail.com.",
     'html'    : "chris@gmail.com is way better than chris2462462@gmail.com."
   },
+
+
+
+  // General cases.
+  {
+    'name'    : "Glyphs that aren't actually surrounding words or phrases won't do anything.",
+    'textile' : "2x + 3 is not the same as 2x + 7",
+    'html'    : "2#215; + 3 is not the same as 2#215; + 7"
+  },
+  {
+    'name'    : "Glpyhs surrounding themselves should still be parsed the same",
+    'textile' : "There's a bold asterisk *** in the middle of this sentence.",
+    'html'    : "There&#8217;s a bold asterisk <strong>*</strong> in the middle of this sentence."
+  },
 ]
