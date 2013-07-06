@@ -1,6 +1,5 @@
 parse_line = [
   // Ellipses.
-
   {
     'name'    : "A triplet of periods will become an ellipsis.",
     'textile' : "Oh ... I wish I were an Oscar Mayer weiner...",
@@ -25,7 +24,6 @@ parse_line = [
 
 
   // Hyphens to en and em dashes.
-
   {
     'name'    : "A double hyphen will become an em dash.",
     'textile' : "Oy--my giblets!",
@@ -75,7 +73,6 @@ parse_line = [
 
 
   // Copyright/Trademark signs.
-
   {
     'name'    : "(C) will be converted to the copyright entity.",
     'textile' : "If you could copyright the copyright symbol, it would likely look like (C)(C).",
@@ -110,7 +107,6 @@ parse_line = [
 
 
   // Dimensional notation.
-
   {
     'name'    : "'x' will become a dimension sign when it is between two digits.",
     'textile' : "Reading you alright, 4x5.",
@@ -140,7 +136,6 @@ parse_line = [
 
 
   // Text emphasis.
-
   {
     'name'    : "Asterisks will convert to <strong> tags for strength.",
     'textile' : "You look *really* ugly in that dress.",
@@ -225,7 +220,6 @@ parse_line = [
 
 
   // Fancy quotes.
-
   {
     'name'    : "Double quotes around words are converted to curly quotations.",
     'textile' : "I said, \"Mr. Darcy, fuck off!\" right to his face!",
@@ -245,7 +239,6 @@ parse_line = [
 
 
   // Acronyms and Citations.
-
   {
     'name'    : "Acronyms can be specified with an acronym tag.",
     'textile' : "I call BS(Bullshit) on you, good sir.",
@@ -295,7 +288,6 @@ parse_line = [
 
 
   // Insertions/deletions.
-
   {
     'name'    : "Surround a word with pluses to indicate its insertion.",
     'textile' : "You are +not+ a very good liar, good sir.",
@@ -394,5 +386,4 @@ parse_line = [
     'textile' : "chris@gmail.com is way better than chris2462462@gmail.com.",
     'html'    : "chris@gmail.com is way better than chris2462462@gmail.com."
   },
-
 ]

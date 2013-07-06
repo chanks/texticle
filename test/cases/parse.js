@@ -1,6 +1,5 @@
 parse = [
   // Simple spacing - paragraphs and line breaks.
-
   {
     'name'    : "A single bare line will be formatted as a paragraph.",
     'textile' : "One solitary line.",
@@ -30,7 +29,6 @@ parse = [
 
 
   // Headers.
-
   {
     'name'    : "A line can be marked as a header.",
     'textile' : "h1. Big Picture\n\nBlah Blah Blah.\n\nh3. Slightly Smaller Picture\n\nTra la la.",
@@ -40,7 +38,6 @@ parse = [
 
 
   // Horizontal rules.
-
   {
     'name'    : "A horizontal rule can be defined between paragraphs with a line of three asterisks.",
     'textile' : "A normal paragraph *** is unaffected.\n\n***\n\nAnd here is another paragraph.",
